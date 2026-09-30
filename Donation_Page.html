@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поддержать проект / Донат</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            max-width: 450px;
+            width: 100%;
+            padding: 24px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #f0f6fc;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #8b949e;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #c9d1d9;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px 12px;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #f0f6fc;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #58a6ff;
+        }
+
+        .amounts {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .amount-btn {
+            flex: 1;
+            padding: 8px;
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #c9d1d9;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .amount-btn:hover {
+            background-color: #30363d;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #238636;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 8px;
+        }
+
+        .btn-submit:hover {
+            background-color: #2ea043;
+        }
+
+        .requisites {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #30363d;
+        }
+
+        .requisites h3 {
+            font-size: 14px;
+            color: #8b949e;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .req-item {
+            background-color: #0d1117;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+            font-family: monospace;
+            font-size: 13px;
+            word-break: break-all;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="header">
+        <h1> Поддержать проект</h1>
+        <p>Ваша поддержка помогает развивать проект и делать его лучше!</p>
+    </div>
+
+    <form onsubmit="alert('Спасибо за поддержку! Используйте реквизиты ниже для перевода.'); return false;">
+        <div class="form-group">
+            <label for="name">Ваше имя или никнейм</label>
+            <input type="text" id="name" placeholder="Например: Иван" required>
+        </div>
+
+        <div class="form-group">
+            <label>Сумма доната (₽)</label>
+            <div class="amounts">
+                <button type="button" class="amount-btn" onclick="setAmount(100)">100 ₽</button>
+                <button type="button" class="amount-btn" onclick="setAmount(300)">300 ₽</button>
+                <button type="button" class="amount-btn" onclick="setAmount(500)">500 ₽</button>
+            </div>
+            <input type="number" id="amount" placeholder="Или введите свою сумму" min="10" required>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Сообщение / Пожелание</label>
+            <textarea id="message" rows="3" placeholder="Напишите пару слов..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Отправить донат</button>
+    </form>
+
+    <div class="requisites">
+        <h3>Прямые реквизиты:</h3>
+        <div class="req-item"><strong>СБП / Карта:</strong> +7 (900) 000-00-00</div>
+        <div class="req-item"><strong>ЮMoney:</strong> 410010000000000</div>
+    </div>
+</div>
+
+<script>
+    function setAmount(value) {
+        document.getElementById('amount').value = value;
+    }
+</script>
+
+</body>
+</html>
